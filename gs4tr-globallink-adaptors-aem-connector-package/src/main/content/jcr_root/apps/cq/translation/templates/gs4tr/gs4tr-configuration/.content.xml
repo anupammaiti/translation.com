@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Connection and project configuration for GlobalLink translation service"
+    jcr:primaryType="cq:Template"
+    jcr:title="GlobalLink Connect Configuration"
+    sling:resourceSuperType="cq/cloudserviceconfigs/templates/configpage"
+    allowedChildren="[]"
+    allowedParents="[/libs/cq/cloudserviceconfigs/templates/servicepage]"
+    allowedPaths="[/etc/cloudservices/gs4tr-translation(/.*)?]"
+    ranking="{Long}90">
+    <jcr:content
+        cq:cloudservicename="gs4tr-translation"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="cq/translation/components/gs4tr/gs4tr-configuration"/>
+</jcr:root>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspaceFilter version="1.0">
+	<filter root="/etc/cloudservices/gs4tr-translation">
+		<exclude pattern="/etc/cloudservices/gs4tr-translation(/.*)?"/>
+	</filter>
+	<filter root="/apps/cq/translation/components/gs4tr" />
+	<filter root="/apps/cq/translation/templates/gs4tr" />
+	<filter root="/apps/cq/translation/widgets/gs4tr" />
+	<filter root="/apps/globallink-adaptor/connector/config" />
+	<filter root="/apps/globallink-adaptor/connector/submissions">
+		<exclude pattern="/apps/globallink-adaptor/connector/submissions(/.*)?" />
+	</filter>	
+	<filter root="/apps/globallink-adaptor/connector/install" />
+</workspaceFilter>

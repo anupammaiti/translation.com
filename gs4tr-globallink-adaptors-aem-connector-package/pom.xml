@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.gs4tr.globallink.adaptors</groupId>
+		<artifactId>gs4tr-globallink-adaptors-aem-connector</artifactId>
+		<version>2.2.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>gs4tr-globallink-adaptors-aem-connector-package</artifactId>
+	
+	<name>GlobalLink Connect - Package</name>
+	
+	<description>
+		GlobalLink Translation Connector for Adobe Experience Manager 6.1&lt;br/&gt;
+		This connector allows you to send content to GlobalLink Project Director.&lt;br/&gt;
+		For more information about GlobalLink, visit &lt;a href="http://www.translations.com/globallink/"&gt;http://www.translations.com/globallink/&lt;/a&gt;
+	</description>
+	
+	<packaging>content-package</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.gs4tr.axis2</groupId>
+			<artifactId>org.apache.axis2.osgi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.gs4tr.globallink.adaptors</groupId>
+			<artifactId>gs4tr-globallink-adaptors-aem-connector-bundle</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.gs4tr.projectdirector</groupId>
+			<artifactId>gs4tr-projectdirector-ws-dto</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.gs4tr.projectdirector</groupId>
+			<artifactId>gs4tr-projectdirector-ws-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.gs4tr.projectdirector</groupId>
+			<artifactId>gs4tr-projectdirector-ws-commons</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>				
+			<plugin>
+				<groupId>com.day.jcr.vault</groupId>
+				<artifactId>content-package-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<group>translations</group>
+					<name>GLOBALLINK-TRANSLATION-CONNECTOR</name>
+					<finalName>GlobalLink-Connect-${project.parent.version}</finalName>
+					<embeddeds>
+						<embedded>
+							<groupId>org.gs4tr.axis2</groupId>
+							<artifactId>org.apache.axis2.osgi</artifactId>
+							<target>/apps/globallink-adaptor/connector/install</target>
+						</embedded>
+						<embedded>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>gs4tr-globallink-adaptors-aem-connector-bundle</artifactId>
+							<target>/apps/globallink-adaptor/connector/install</target>
+						</embedded>
+						<embedded>
+							<groupId>org.gs4tr.projectdirector</groupId>
+							<artifactId>gs4tr-projectdirector-ws-dto</artifactId>
+							<target>/apps/globallink-adaptor/connector/install</target>
+						</embedded>
+						<embedded>
+							<groupId>org.gs4tr.projectdirector</groupId>
+							<artifactId>gs4tr-projectdirector-ws-client</artifactId>
+							<target>/apps/globallink-adaptor/connector/install</target>
+						</embedded>
+						<embedded>
+							<groupId>org.gs4tr.projectdirector</groupId>
+							<artifactId>gs4tr-projectdirector-ws-commons</artifactId>
+							<target>/apps/globallink-adaptor/connector/install</target>
+						</embedded>
+					</embeddeds>
+				</configuration>
+			</plugin>			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<configuration>
+							<tasks>
+								<echo>[vault-work copy started ...]</echo>
+								<copy verbose="true" overwrite="true" todir="${project.build.directory}/vault-work/META-INF">
+									<fileset file="${basedir}/src/main/content/META-INF/**" />
+								</copy>
+								<echo>[vault-work copy ended.]</echo>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<includeEmptyDirs>true</includeEmptyDirs>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/content/jcr_root</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>**/.vlt</exclude>
+					<exclude>**/.vltignore</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-antrun-plugin
+										</artifactId>
+										<versionRange>
+											[1.1,)
+										</versionRange>
+										<goals>
+											<goal>run</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

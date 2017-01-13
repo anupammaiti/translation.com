@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	jcr:primaryType="cq:Page">
+	<jcr:content cq:template="/libs/cq/cloudserviceconfigs/templates/servicepage"
+		jcr:description="GlobalLink Translation Connector" jcr:primaryType="cq:PageContent"
+		jcr:title="GlobalLink" sling:resourceType="cq/cloudserviceconfigs/components/servicepage"
+		allowMultiple="{Boolean}true" description="The Translations.com GlobalLink® Adobe AEM Connect
+		enables users to initiate translation requests from within the Adobe AEM environment.
+		Content is sent securely via web services to GlobalLink® Project Director,
+		an automated translation workflow system. Once translated and finalized,
+		content is automatically delivered back to the appropriate location."
+		inclusionRank="{Long}20" ranking="20"
+		selectableChildren="[/apps/cq/translation/templates/gs4tr/gs4tr-configuration]"
+		serviceAdminUrl="http://www.translations.com/products/globallink-AEM-adaptor"
+		serviceUrl="http://adobe.ly/1cUrWQQ"
+		serviceUrlLabel="GlobalLink"
+		thumbnailPath="/apps/cq/translation/templates/gs4tr/gs4tr-configuration/thumbnail.png" />
+		<language-cost/>
+</jcr:root>

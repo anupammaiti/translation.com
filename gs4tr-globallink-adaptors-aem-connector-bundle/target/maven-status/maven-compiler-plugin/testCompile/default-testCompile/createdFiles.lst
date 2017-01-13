@@ -1,0 +1,12 @@
+org\gs4tr\globallink\adaptors\aem\connector\test\webmvc\command\adapter\SaveConnectionConfigTaskCommandAdapterTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\SubmissionServiceTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\webmvc\command\adapter\PullUserProjectsTaskCommandAdapterTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\webmvc\handler\SaveConnectionConfigTaskHandlerTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\core\config\TranslationProviderConfigAdapterTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\core\config\AbstractTranslationProviderConfigAdapterTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\webmvc\handler\PullUserProjectsTaskHandlerTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\util\RepositoryUtilTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\util\ResourceLanguageUtilTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\webmvc\command\adapter\AbstractTaskCommandAdapterTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\webmvc\handler\SaveRepositoryConfigTaskHandlerTest.class
+org\gs4tr\globallink\adaptors\aem\connector\test\model\adapter\ConnectionAdapterTest.class

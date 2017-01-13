@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="550"
+    title="Global Link Configuration"
+    width="600"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                height="550"
+                title="Cloud Configuration">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <connection jcr:primaryType="cq:Panel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <main
+                                jcr:primaryType="cq:Panel"
+                                style="marginTop: 8px; marginBottom: 18px; paddingTop: 15px;"
+                                title="&lt;b>Web Services Configuration&lt;/b>"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <webServiceURL
+                                        jcr:primaryType="cq:Widget"
+                                        fieldDescription="GlobalLink web services URL (e.g. http://hostname:8080/pd4/services)"
+                                        fieldLabel="Web Services URL:"
+                                        name="./pdWebServicesURL"
+                                        xtype="textfield">
+                                        <listeners
+                                            jcr:primaryType="nt:unstructured"
+                                            change="function(component, event) { CQ.Ext.getCmp('gs4tr-configuration-save-btn').disable(); }"/>
+                                    </webServiceURL>
+                                    <userName
+                                        jcr:primaryType="cq:Widget"
+                                        fieldDescription="GlobalLink username"
+                                        fieldLabel="Username:"
+                                        name="./pdUserName"
+                                        xtype="textfield">
+                                        <listeners
+                                            jcr:primaryType="nt:unstructured"
+                                            change="function(component, event) { CQ.Ext.getCmp('gs4tr-configuration-save-btn').disable(); }"/>
+                                    </userName>
+                                    <userPassword
+                                        jcr:primaryType="cq:Widget"
+                                        fieldDescription="GlobalLink user password"
+                                        fieldLabel="Password:"
+                                        ignoreData="true"
+                                        name="./pdUserPassword"
+                                        xtype="password">
+                                        <listeners
+                                            jcr:primaryType="nt:unstructured"
+                                            change="function(component, event) { CQ.Ext.getCmp('gs4tr-configuration-save-btn').disable(); }"/>
+                                    </userPassword>
+                                    <userPasswordEncryption
+                                        jcr:primaryType="cq:Widget"
+                                        name="./pdUserPassword@Encrypted"
+                                        xtype="hidden"/>
+                                </items>
+                            </main>
+                            <project
+                                jcr:primaryType="cq:Panel"
+                                style="marginTop: 6px; marginBottom: 16px; paddingTop: 10px;"
+                                title="&lt;b>Project Configuration&lt;/b>"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <shortCode
+                                        jcr:primaryType="cq:Widget"
+                                        fieldDescription="GlobalLink project short code"
+                                        fieldLabel="Short Code"
+                                        name="./pdProjectShortCode"
+                                        xtype="textfield"/>
+                                    <defaultClassifier
+                                        jcr:primaryType="cq:Widget"
+                                        fieldDescription="&#x9;&#xa;GlobalLink project default classifier"
+                                        fieldLabel="Default Classifier"
+                                        name="./pdProjectDefaultClassifier"
+                                        xtype="textfield"/>
+                                    <customClassifier
+                                        jcr:primaryType="cq:Panel"
+                                        style="marginTop: 6px; marginBottom: 16px; paddingTop: 10px;"
+                                        title="&lt;b>Custom Classifier&lt;/b>"
+                                        xtype="dialogfieldset">
+                                        <items jcr:primaryType="cq:WidgetCollection">
+                                            <multi
+                                                jcr:primaryType="cq:Widget"
+                                                fieldDescription="Add custom MIME/Classifier "
+                                                fieldLabel="Multi-Field"
+                                                hideLabel="{Boolean}true"
+                                                name="./pdProjectCustomClassifier"
+                                                style="marginTop:2px; marginBottom: 2px; paddingTop: "
+                                                xtype="multifield">
+                                                <fieldConfig
+                                                    jcr:primaryType="nt:unstructured"
+                                                    optionsProvider="Ejst.x3.provideOptions2"
+                                                    xtype="ejstcustom"/>
+                                            </multi>
+                                        </items>
+                                    </customClassifier>
+                                </items>
+                            </project>
+                        </items>
+                    </connection>
+                </items>
+                <buttons jcr:primaryType="cq:WidgetCollection">
+                    <connect
+                        jcr:primaryType="cq:Widget"
+                        text="Connect">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            click="function(comp, evt) { var dialog = this.findParentByType('dialog'); CQ.Translation.GlobalLink.Connection.pullUserProjects(dialog); }"/>
+                    </connect>
+                    <save
+                        jcr:primaryType="cq:Widget"
+                        disabled="true"
+                        id="gs4tr-configuration-save-btn"
+                        text="Save">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            click="function(comp, evt) { var dialog = this.findParentByType('dialog'); CQ.Translation.GlobalLink.Connection.saveConnectionConfig(dialog); }"/>
+                    </save>
+                    <cancel
+                        jcr:primaryType="cq:Widget"
+                        handler="function(button) { this.hide(); window.location.reload(); }"
+                        text="Cancel"/>
+                </buttons>
+            </tab1>
+            <Copy_x0020_of_x0020_tab1
+                jcr:primaryType="cq:Panel"
+                height="400"
+                title="Cost Configuration"
+                width="600">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <prop15
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Language Name"
+                        name="./langName"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <prop17
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Language Code"
+                        name="./langCode"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <prop4
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        xtype="selection"/>
+                    <prop5
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="New Words"
+                        name="./newWords"
+                        validateOnBlur="true"
+                        xtype="numberfield"/>
+                    <prop7
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Fuzzy Words"
+                        name="./fuzzyWords"
+                        validateOnBlur="true"
+                        xtype="numberfield"/>
+                    <prop8
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="100% Matches"
+                        name="./100Matches"
+                        validateOnBlur="true"
+                        xtype="numberfield"/>
+                    <prop9
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Repetitions"
+                        name="./repsWords"
+                        validateOnBlur="true"
+                        xtype="numberfield"/>
+                    <prop10
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        xtype="selection"/>
+                    <prop11
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="true"
+                        xtype="selection"/>
+                    <selectList
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="0"
+                        fieldLabel="PM Cost"
+                        name="./pmCostSelection"
+                        type="text"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <one
+                                jcr:primaryType="nt:unstructured"
+                                text="Multiplier"
+                                value="Multi"/>
+                            <two
+                                jcr:primaryType="nt:unstructured"
+                                text="Fixed Cost"
+                                value="Fixed"/>
+                        </options>
+                    </selectList>
+                    <prop18
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel=""
+                        name="./pmCost"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                </items>
+                <buttons jcr:primaryType="cq:WidgetCollection">
+                    <save
+                        jcr:primaryType="cq:Widget"
+                        text="Save">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            click="function(comp, evt) { var dialog = this.findParentByType('dialog'); CQ.Translation.GlobalLink.Connection.saveCostInfo(dialog); }"/>
+                    </save>
+                </buttons>
+            </Copy_x0020_of_x0020_tab1>
+        </items>
+    </items>
+    <buttons jcr:primaryType="cq:WidgetCollection">
+        <cancel
+            jcr:primaryType="cq:Widget"
+            handler="function(button) { this.hide(); window.location.reload(); }"
+            text="Close"/>
+    </buttons>
+</jcr:root>

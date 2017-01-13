@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.gs4tr.globallink.adaptors.aem.connector.test.util.RepositoryUtilTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 sec - in org.gs4tr.globallink.adaptors.aem.connector.test.util.RepositoryUtilTest

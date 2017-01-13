@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:created="{Date}2014-11-25T15:44:52.571+01:00"
+    jcr:createdBy="admin"
+    jcr:description=""
+    jcr:lastModified="{Date}2014-11-25T15:44:52.571+01:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="vlt:PackageDefinition"
+    buildCount="17"
+    builtWith="Adobe Experience Manager-6.0.0.20140509"
+    fixedBugs=""
+    group="my_packages"
+    lastUnwrapped="{Date}2014-11-25T15:44:52.571+01:00"
+    lastUnwrappedBy="admin"
+    lastWrapped="{Date}2014-11-25T15:44:52.571+01:00"
+    lastWrappedBy="admin"
+    name="gs4tr-globallink-adaptors-aem-connector"
+    testedWith=""
+    version="">
+    <thumbnail.png/>
+    <filter jcr:primaryType="nt:unstructured">
+        <f0
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/etc/cloudservices/gs4tr-translation"
+            rules="[]"/>
+        <f1
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/libs/cq/translation/components/gs4tr"
+            rules="[]"/>
+        <f2
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/libs/cq/translation/templates/gs4tr"
+            rules="[]"/>
+        <f3
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/libs/cq/translation/widgets/gs4tr"
+            rules="[]"/>
+    </filter>
+</jcr:root>

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.gs4tr.globallink.adaptors.aem.connector.test.webmvc.handler.SaveConnectionConfigTaskHandlerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.004 sec - in org.gs4tr.globallink.adaptors.aem.connector.test.webmvc.handler.SaveConnectionConfigTaskHandlerTest

@@ -1,0 +1,4 @@
+de@de-DE
+en@en-EN@from
+fr@fr-FR@to
+it@it-IT

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>GlobalLink Connect - Package</comment>
+<entry key="createdBy">Rahul</entry>
+<entry key="name">GLOBALLINK-TRANSLATION-CONNECTOR</entry>
+<entry key="created">2017-01-11T23:04:11.366+0530</entry>
+<entry key="groupId">org.gs4tr.globallink.adaptors</entry>
+<entry key="version">2.2.0-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">translations</entry>
+<entry key="description">GlobalLink Translation Connector for Adobe Experience Manager 6.1&lt;br/&gt;
+		This connector allows you to send content to GlobalLink Project Director.&lt;br/&gt;
+		For more information about GlobalLink, visit &lt;a href="http://www.translations.com/globallink/"&gt;http://www.translations.com/globallink/&lt;/a&gt;</entry>
+<entry key="artifactId">gs4tr-globallink-adaptors-aem-connector-package</entry>
+<entry key="path">/etc/packages/translations/GLOBALLINK-TRANSLATION-CONNECTOR.zip</entry>
+</properties>

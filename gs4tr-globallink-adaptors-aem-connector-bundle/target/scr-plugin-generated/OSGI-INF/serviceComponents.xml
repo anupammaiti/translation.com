@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component enabled="true" name="org.gs4tr.globallink.adaptors.aem.connector.core.config.TranslationProviderConfigAdapterFactory">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.core.config.TranslationProviderConfigAdapterFactory"/>
+        <service servicefactory="false">
+            <provide interface="org.apache.sling.api.adapter.AdapterFactory"/>
+        </service>
+        <property name="adapters" type="String" value="org.gs4tr.globallink.adaptors.aem.connector.core.config.TranslationProviderConfig"/>
+        <property name="adaptables" type="String" value="org.apache.sling.api.resource.Resource"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.core.config.TranslationProviderConfigAdapterFactory"/>
+        <reference name="cryptoSupportService" interface="com.adobe.granite.crypto.CryptoSupport" cardinality="1..1" policy="static" bind="bindCryptoSupportService" unbind="unbindCryptoSupportService"/>
+    </scr:component>
+    <scr:component enabled="true" name="org.gs4tr.globallink.adaptors.aem.connector.core.config.TranslationProviderServiceAdapterFactory">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.core.config.TranslationProviderServiceAdapterFactory"/>
+        <service servicefactory="false">
+            <provide interface="org.apache.sling.api.adapter.AdapterFactory"/>
+        </service>
+        <property name="adapters" type="String">
+            org.gs4tr.projectdirector.ws.client.ServiceLocator
+            org.gs4tr.projectdirector.ws.client.DocumentServiceImpl
+            org.gs4tr.projectdirector.ws.client.ProjectServiceImpl
+            org.gs4tr.projectdirector.ws.client.SubmissionServiceImpl
+            org.gs4tr.projectdirector.ws.client.TargetServiceImpl
+        </property>
+        <property name="adaptables" type="String" value="org.gs4tr.globallink.adaptors.aem.connector.core.config.TranslationProviderConfig"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.core.config.TranslationProviderServiceAdapterFactory"/>
+    </scr:component>
+    <scr:component enabled="true" name="org.gs4tr.globallink.adaptors.aem.connector.model.adapter.factory.ModelAdapterFactory">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.model.adapter.factory.ModelAdapterFactory"/>
+        <service servicefactory="false">
+            <provide interface="org.apache.sling.api.adapter.AdapterFactory"/>
+        </service>
+        <property name="adapters" type="String">
+            org.gs4tr.globallink.adaptors.aem.connector.model.AemConnection
+            org.gs4tr.globallink.adaptors.aem.connector.model.AemSubmission
+            org.gs4tr.globallink.adaptors.aem.connector.model.AemSubmissionTarget
+        </property>
+        <property name="adaptables" type="String" value="org.apache.sling.api.resource.Resource"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.model.adapter.factory.ModelAdapterFactory"/>
+    </scr:component>
+    <scr:component enabled="true" name="org.gs4tr.globallink.adaptors.aem.connector.model.adapter.factory.ServiceLocatorAdapterFactory">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.model.adapter.factory.ServiceLocatorAdapterFactory"/>
+        <service servicefactory="false">
+            <provide interface="org.apache.sling.api.adapter.AdapterFactory"/>
+        </service>
+        <property name="adapters" type="String" value="org.gs4tr.projectdirector.ws.client.ServiceLocator"/>
+        <property name="adaptables" type="String">
+            org.gs4tr.globallink.adaptors.aem.connector.model.AemConnection
+            org.apache.sling.api.resource.Resource
+        </property>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.model.adapter.factory.ServiceLocatorAdapterFactory"/>
+    </scr:component>
+    <scr:component enabled="true" name="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.command.adapter.factory.TaskCommandAdapterFactory">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.command.adapter.factory.TaskCommandAdapterFactory"/>
+        <service servicefactory="false">
+            <provide interface="org.apache.sling.api.adapter.AdapterFactory"/>
+        </service>
+        <property name="adapters" type="String">
+            org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.command.impl.DeleteConfigTaskCommand
+            org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.command.impl.PullUserProjectsTaskCommand
+            org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.command.impl.SaveConnectionConfigTaskCommand
+        </property>
+        <property name="adaptables" type="String" value="org.apache.sling.api.SlingHttpServletRequest"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.command.adapter.factory.TaskCommandAdapterFactory"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.provider.impl.TaskHandlerProviderImpl">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.provider.impl.TaskHandlerProviderImpl"/>
+        <service servicefactory="false">
+            <provide interface="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.provider.TaskHandlerProvider"/>
+        </service>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.provider.impl.TaskHandlerProviderImpl"/>
+        <reference name="deleteConfigTaskHandler" interface="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.TaskHandler" cardinality="1..1" policy="static" target="(taskName=deleteConfig)" bind="bindDeleteConfigTaskHandler" unbind="unbindDeleteConfigTaskHandler"/>
+        <reference name="pullUserProjectsTaskHandler" interface="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.TaskHandler" cardinality="1..1" policy="static" target="(taskName=pullUserProjects)" bind="bindPullUserProjectsTaskHandler" unbind="unbindPullUserProjectsTaskHandler"/>
+        <reference name="saveConnectionConfigTaskHandler" interface="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.TaskHandler" cardinality="1..1" policy="static" target="(taskName=saveConnectionConfig)" bind="bindSaveConnectionConfigTaskHandler" unbind="unbindSaveConnectionConfigTaskHandler"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="org.gs4tr.globallink.adaptors.aem.connector.core.TranslationServiceFactoryImpl">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.core.TranslationServiceFactoryImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.adobe.granite.translation.api.TranslationServiceFactory"/>
+        </service>
+        <property name="translationFactory" type="String" value="GlobalLink"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.core.TranslationServiceFactoryImpl"/>
+        <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory"/>
+        <reference name="translationCloudConfigUtil" interface="com.adobe.granite.translation.core.TranslationCloudConfigUtil" cardinality="1..1" policy="static" bind="bindTranslationCloudConfigUtil" unbind="unbindTranslationCloudConfigUtil"/>
+        <reference name="translationConfig" interface="com.adobe.granite.translation.api.TranslationConfig" cardinality="1..1" policy="static" bind="bindTranslationConfig" unbind="unbindTranslationConfig"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.DeleteConfigTaskHandler">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.DeleteConfigTaskHandler"/>
+        <service servicefactory="false">
+            <provide interface="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.TaskHandler"/>
+        </service>
+        <property name="taskName" type="String" value="deleteConfig"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.DeleteConfigTaskHandler"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.PullUserProjectsTaskHandler">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.PullUserProjectsTaskHandler"/>
+        <service servicefactory="false">
+            <provide interface="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.TaskHandler"/>
+        </service>
+        <property name="taskName" type="String" value="pullUserProjects"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.PullUserProjectsTaskHandler"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.SaveConnectionConfigTaskHandler">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.SaveConnectionConfigTaskHandler"/>
+        <service servicefactory="false">
+            <provide interface="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.TaskHandler"/>
+        </service>
+        <property name="taskName" type="String" value="saveConnectionConfig"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.impl.SaveConnectionConfigTaskHandler"/>
+        <reference name="cryptoSupportService" interface="com.adobe.granite.crypto.CryptoSupport" cardinality="1..1" policy="static" bind="bindCryptoSupportService" unbind="unbindCryptoSupportService"/>
+    </scr:component>
+    <scr:component enabled="true" name="org.gs4tr.globallink.adaptors.aem.connector.webmvc.GlobalLinkConnectorServlet">
+        <implementation class="org.gs4tr.globallink.adaptors.aem.connector.webmvc.GlobalLinkConnectorServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths" value="/bin/globallink-connector"/>
+        <property name="sling.servlet.methods" value="POST"/>
+        <property name="service.pid" value="org.gs4tr.globallink.adaptors.aem.connector.webmvc.GlobalLinkConnectorServlet"/>
+        <reference name="taskHandlerProvider" interface="org.gs4tr.globallink.adaptors.aem.connector.webmvc.handler.provider.TaskHandlerProvider" cardinality="1..1" policy="static" bind="bindTaskHandlerProvider" unbind="unbindTaskHandlerProvider"/>
+    </scr:component>
+</components>

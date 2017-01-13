@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.gs4tr.globallink.adaptors</groupId>
+		<artifactId>gs4tr-globallink-adaptors-aem-connector</artifactId>
+		<version>2.2.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>gs4tr-globallink-adaptors-aem-connector-bundle</artifactId>
+	
+	<name>GlobalLink Connect - Bundle</name>
+	
+	<packaging>bundle</packaging>
+	
+	<properties>
+		<maven.build.timestamp.format>MMdd</maven.build.timestamp.format>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<dependencies>
+		
+		<!-- Apache Commons -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Apache JackRabbit -->			
+		<dependency>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-jcr-commons</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Apache Sling -->
+		<dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.json</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.event</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.jcr-wrapper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		        
+		<!-- Apache Felix -->
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Adobe Granite -->
+		<dependency>
+			<groupId>com.adobe.granite</groupId>
+			<artifactId>com.adobe.granite.comments</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.granite</groupId>
+			<artifactId>com.adobe.granite.crypto</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Adobe Granite Translation API & Core -->
+		<dependency>
+			<groupId>com.adobe.granite</groupId>
+			<artifactId>com.adobe.granite.translation.api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.granite</groupId>
+			<artifactId>com.adobe.granite.translation.core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Apache Felix Servlet API -->
+        <dependency>
+        	<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.http.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Day -->
+		<dependency>
+			<groupId>com.day.cq</groupId>
+			<artifactId>cq-commons</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.day.cq</groupId>
+			<artifactId>cq-search</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.day.cq</groupId>
+			<artifactId>cq-tagging</artifactId>
+			<scope>provided</scope>
+		</dependency>			
+		<dependency>
+			<groupId>com.day.cq.wcm</groupId>
+			<artifactId>cq-wcm-api</artifactId>
+			<scope>provided</scope>
+		</dependency>		
+		
+		<!-- OSGi Core & Compendium -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Project Director -->
+		<dependency>
+			<groupId>org.gs4tr.projectdirector</groupId>
+			<artifactId>gs4tr-projectdirector-ws-dto</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.gs4tr.projectdirector</groupId>
+			<artifactId>gs4tr-projectdirector-ws-client</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.gs4tr.projectdirector</groupId>
+			<artifactId>gs4tr-projectdirector-ws-commons</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- JUnit and Mockito -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+	
+	<repositories>
+        <repository>
+            <id>adobe</id>
+            <name>Adobe Public Repository</name>
+            <url>http://repo.adobe.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>adobe</id>
+            <name>Adobe Public Repository</name>
+            <url>http://repo.adobe.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </pluginRepository>
+    </pluginRepositories>
+	
+	<build>
+		<plugins>			
+			<plugin>
+            	<groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>bundle</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<supportedProjectTypes>
+						<supportedProjectType>jar</supportedProjectType>
+						<supportedProjectType>bundle</supportedProjectType>
+					</supportedProjectTypes>
+					<instructions>
+						<Bundle-Activator>org.gs4tr.globallink.adaptors.aem.connector.Activator</Bundle-Activator>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}-${maven.build.timestamp}</Bundle-Version>
+						<Bundle-Vendor>TRANSLATIONS.COM</Bundle-Vendor>
+						<Export-Package>org.gs4tr.globallink.adaptors.aem.connector.*</Export-Package>
+						<Import-Package>
+							javax.jcr,
+							javax.servlet,
+							com.adobe.granite.comments,
+							com.adobe.granite.crypto,
+							com.adobe.granite.translation.api,
+							com.adobe.granite.translation.core,
+							com.adobe.granite.translation.core.common,
+							com.day.cq.search,
+							com.day.cq.search.result,
+							com.day.cq.wcm.api,
+							org.apache.commons.io,
+							org.apache.commons.logging,
+							org.apache.jackrabbit,
+							org.apache.sling.api,
+							org.apache.sling.api.adapter,
+							org.apache.sling.api.resource,
+							org.apache.sling.api.servlets,
+							org.apache.sling.commons.json,
+							org.gs4tr.projectdirector.ws.client,
+							org.gs4tr.projectdirector.ws.client.commons,
+							org.gs4tr.projectdirector.ws.dto,
+							org.osgi.framework,
+							org.osgi.service.cm,
+							org.osgi.service.event
+						</Import-Package>
+					</instructions>
+				</configuration>
+			</plugin>			
+			<plugin>
+            	<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-scr-scrdescriptor</id>
+						<goals>
+							<goal>scr</goal>
+						</goals>
+					</execution>
+				</executions>
+        	</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+	
+</project>
